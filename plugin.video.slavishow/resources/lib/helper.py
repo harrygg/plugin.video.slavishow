@@ -39,8 +39,9 @@ class Helper():
     def ExtractVideos(self, response):
         videos = []
         try:
-            ul = re.compile('ul.+video_list["\']+>(.+?)</ul', re.DOTALL).findall(response)
+            ul = re.compile('video_list["\']+>(.+?)</ul', re.DOTALL).findall(response)
             if len(ul)>0:
+                xbmc.log(ul[0])
                 m = re.compile('a.+href[="\'\s]+(.+?)["\'\s]+.+title[="\']+(.+?)[\'"]+.+img.*src[="\']+(.+?)[\'"]+').findall(ul[0]) 
                 h = re.compile('a.+class[\'"=]+(next.+page-numbers)').findall(response)
                 self.has_more_videos = True if len(h) > 0 else False
@@ -67,7 +68,7 @@ class Helper():
             h = re.compile('host["\':\s]+(rtmp.+?)["\'\s]').findall(html)
             if len(h) > 0:
                 host = h[0]
-            m = re.compile('input.*value.*["\':\s]+(.+\.mp4)["\'\s]').findall(html)#<input type="hidden" id="wm-src-video" value="slavishow/20160201.mp4">
+            m = re.compile('input.*value.*["\'\s]+(.+\.mp4)["\'\s]').findall(html)#<input type="hidden" id="wm-src-video" value="slavishow/20160201.mp4">
             if len(m) > 0:
                 path = m[0]
         except Exception, er:
