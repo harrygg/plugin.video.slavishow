@@ -60,14 +60,14 @@ class Helper():
         
     def VideoStream(self, url):
         host = 'rtmp://audio.slavishow.com/slavishow/'
-        player = self.host + 'content/themes/slavishow/sw.f/flowplayer.cluster-3.2.10.swf'
+        player = 'http://vjs.zencdn.net/swf/5.0.1/video-js.swf'
         path = ''                                                            
         try:
             html = Request(url)
             h = re.compile('host["\':\s]+(rtmp.+?)["\'\s]').findall(html)
             if len(h) > 0:
                 host = h[0]
-            m = re.compile('url["\':\s]+(.+\.mp4)["\'\s]').findall(html)
+            m = re.compile('input.*value.*["\':\s]+(.+\.mp4)["\'\s]').findall(html)#<input type="hidden" id="wm-src-video" value="slavishow/20160201.mp4">
             if len(m) > 0:
                 path = m[0]
         except Exception, er:
