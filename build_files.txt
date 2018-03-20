@@ -1,9 +1,0 @@
-plugin.video.slavishow\addon.py
-plugin.video.slavishow\addon.xml
-plugin.video.slavishow\icon.png
-plugin.video.slavishow\changelog.txt
-plugin.video.slavishow\LICENSE
-plugin.video.slavishow\resources\__init__.py
-plugin.video.slavishow\resources\lib\__init__.py
-plugin.video.slavishow\resources\lib\categories.json
-plugin.video.slavishow\resources\lib\helper.py
